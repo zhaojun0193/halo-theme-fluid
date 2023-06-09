@@ -1,0 +1,11 @@
+id: zhaojun_halo-theme-fluid
+name: halo-theme-fluid
+author:
+  name: zhaojun
+  website: https://www.zhaojun.ink
+description: hexo-theme-fluid移植到halo
+logo: 主题 Logo 地址
+website: https://www.zhaojun.ink
+repo: 主题 git 仓库地址，如有填写，后台可在线更新
+version: 0.0.1
+require: 1.6.0
