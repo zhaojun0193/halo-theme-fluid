@@ -1,0 +1,1 @@
+这个主题是移植于[hexo-theme-fluid](https://github.com/fluid-dev/hexo-theme-fluid) ，感谢原作者的开源。
