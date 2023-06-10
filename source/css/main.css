@@ -1248,6 +1248,7 @@ i.iconfont {
 .markdown-body .highlight pre,
 .markdown-body pre {
   padding: 1.45rem 1rem;
+  position: relative;
 }
 .markdown-body pre code.hljs {
   padding: 0;

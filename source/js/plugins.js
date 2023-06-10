@@ -125,15 +125,21 @@ Fluid.plugins = {
 
       if (enableLang) {
         lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
+        // if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+        //   lang = $pre[0].children[0].classList[1];
+        // } else if ($pre[0].getAttribute('data-language')) {
+        //   lang = $pre[0].getAttribute('data-language');
+        // } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+        //   lang = $pre[0].children[0].classList[1];
+        //   $pre.parent().addClass('code-wrapper');
+        // } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+        //   $pre.wrap('<div class="code-wrapper"></div>');
+        // }
+        if ($pre[0].children.length > 0  && $pre[0].children[0].classList[0].startsWith('language-')) {
+          let subLang = $pre[0].children[0].classList[0].replace('language-', '')
+          if(subLang){
+            lang = subLang;
+          }
         }
         lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
       }

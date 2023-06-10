@@ -1,10 +1,14 @@
-<#macro layout title>
-    <@head title="${blog_title!}"/>
+<#macro layout title post="">
+    <@head title="${title!}"/>
     <body>
-    <div class="header-inner" style="height: 100vh;">
-        <@nav/>
-        <@banner/>
-    </div>
+    <#if is_index??>
+        <div class="header-inner" style="height: 100vh;">
+    <#else>
+        <div class="header-inner" style="height: 70vh;">
+    </#if>
+            <@nav/>
+            <@banner/>
+        </div>
     <#nested >
     <@footer/>
     </body>
@@ -44,6 +48,12 @@
 
     <title>${title}</title>
     <link rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css"/>
+
+    <#if is_post??>
+        <link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"/>
+        <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"/>
+        <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"/>
+    </#if>
 
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
@@ -108,14 +118,60 @@
 </#macro>
 
 <#macro banner>
-    <div id="banner" class="banner" parallax=true
-         style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
+    <#if is_index??>
+        <#if settings.home_bg_image?? && settings.home_bg_image != ''>
+            <div id="banner" class="banner" parallax=true style="background: url('${settings.home_bg_image!}') no-repeat center center; background-size: cover;">
+        <#else>
+            <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
+        </#if>
+    <#elseif is_post??>
+        <#if settings.post_cover_image_to_bg?? && settings.post_cover_image_to_bg>
+            <div id="banner" class="banner" parallax=true style="background: url('${post.thumbnail!}') no-repeat center center; background-size: cover;">
+        <#else>
+            <#if settings.post_bg_image?? && settings.post_bg_image != ''>
+            <div id="banner" class="banner" parallax=true
+                 style="background: url('${settings.post_bg_image!}') no-repeat center center; background-size: cover;">
+            <#else>
+                <div id="banner" class="banner" parallax=true
+                     style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
+            </#if>
+        </#if>
+    </#if>
         <div class="full-bg-img">
             <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
                 <div class="banner-text text-center fade-in-up">
                     <div class="h2">
-                        <span id="subtitle" data-typed-text="卑微幻想家"></span>
+                        <#if is_index??>
+                            <#if settings.sub_title?? && settings.sub_title != ''>
+                                <span id="subtitle" data-typed-text="${settings.sub_title!}"></span>
+                            </#if>
+                        <#elseif is_post?? && post??>
+                            <span id="subtitle" data-typed-text="${post.title!}"></span>
+                        </#if>
                     </div>
+                    <#if is_post??>
+                    <div class="mt-3">
+                      <span class="post-meta">
+                        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                        <time datetime="2020-03-09 00:38" pubdate>
+                          ${post.createTime?string("yyyy-MM-dd HH:mm")}
+                        </time>
+                      </span>
+                    </div>
+                    <div class="mt-1">
+                       <span class="post-meta mr-2">
+                         <i class="iconfont icon-chart"></i>
+                           ${(post.wordCount)!} 字
+                       </span>
+                        <span class="post-meta mr-2"><i class="iconfont icon-clock-fill"></i>
+                            ${(((post.wordCount)!0)/300)?round} 分钟
+                        </span>
+                        <span id="leancloud-page-views-container" class="post-meta" style="display: inline;">
+                            <i class="iconfont icon-eye" aria-hidden="true"></i>
+                            <span id="leancloud-page-views">${(post.visits)!}</span> 次
+                        </span>
+                    </div>
+                    </#if>
                 </div>
                 <div class="scroll-down-bar">
                     <i class="iconfont icon-arrowdown"></i>
@@ -240,6 +296,105 @@
     <script src="${theme_base!}/source/js/img-lazyload.js"></script>
     <script src="${theme_base!}/source/js/local-search.js"></script>
 
+
+    <#if is_post??>
+    <script>
+        Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+            var toc = jQuery('#toc');
+            if (toc.length === 0 || !window.tocbot) { return; }
+            var boardCtn = jQuery('#board-ctn');
+            var boardTop = boardCtn.offset().top;
+
+            window.tocbot.init(Object.assign({
+                tocSelector     : '#toc-body',
+                contentSelector : '.markdown-body',
+                linkClass       : 'tocbot-link',
+                activeLinkClass : 'tocbot-active-link',
+                listClass       : 'tocbot-list',
+                isCollapsedClass: 'tocbot-is-collapsed',
+                collapsibleClass: 'tocbot-is-collapsible',
+                scrollSmooth    : true,
+                includeTitleTags: true,
+                headingsOffset  : -boardTop,
+            }, CONFIG.toc));
+            if (toc.find('.toc-list-item').length > 0) {
+                toc.css('visibility', 'visible');
+            }
+
+            Fluid.events.registerRefreshCallback(function() {
+                if ('tocbot' in window) {
+                    tocbot.refresh();
+                    var toc = jQuery('#toc');
+                    if (toc.length === 0 || !tocbot) {
+                        return;
+                    }
+                    if (toc.find('.toc-list-item').length > 0) {
+                        toc.css('visibility', 'visible');
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+    <script>Fluid.plugins.codeWidget();</script>
+
+
+
+    <script>
+        Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+            window.anchors.options = {
+                placement: CONFIG.anchorjs.placement,
+                visible  : CONFIG.anchorjs.visible
+            };
+            if (CONFIG.anchorjs.icon) {
+                window.anchors.options.icon = CONFIG.anchorjs.icon;
+            }
+            var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+            var res = [];
+            for (var item of el) {
+                res.push('.markdown-body > ' + item.trim());
+            }
+            if (CONFIG.anchorjs.placement === 'left') {
+                window.anchors.options.class = 'anchorjs-link-left';
+            }
+            window.anchors.add(res.join(', '));
+
+            Fluid.events.registerRefreshCallback(function() {
+                if ('anchors' in window) {
+                    anchors.removeAll();
+                    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+                    var res = [];
+                    for (var item of el) {
+                        res.push('.markdown-body > ' + item.trim());
+                    }
+                    if (CONFIG.anchorjs.placement === 'left') {
+                        anchors.options.class = 'anchorjs-link-left';
+                    }
+                    anchors.add(res.join(', '));
+                }
+            });
+        });
+    </script>
+
+
+
+    <script>
+        Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+            Fluid.plugins.fancyBox();
+        });
+    </script>
+
+
+    <script>Fluid.plugins.imageCaption();</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</#if>
+
     <!-- 主题的启动项，将它保持在最底部 -->
     <!-- the boot of the theme, keep it at the bottom -->
     <script src="${theme_base!}/source/js/boot.js"></script>
@@ -256,17 +411,17 @@
             </a>
         </#if>
         <#list pagination.rainbowPages as number>
-                <#if number.isCurrent>
-                    <span class="page-number current">${number.page}</span>
+        <#if number.isCurrent>
+            <span class="page-number current">${number.page}</span>
                 <#else>
-                    <a class="page-number" href="${number.fullPath}/#board">${number.page}</a>
-                </#if>
-        </#list>
+            <a class="page-number" href="${number.fullPath}/#board">${number.page}</a>
+        </#if>
+    </#list>
         <#if pagination.hasNext>
-            <a class="extend next" rel="next" href="${pagination.nextPageFullPath!}/#board">
+        <a class="extend next" rel="next" href="${pagination.nextPageFullPath!}/#board">
                 <i class="iconfont icon-arrowright"></i>
             </a>
-        </#if>
+    </#if>
     </@paginationTag>
         </span>
     </nav>

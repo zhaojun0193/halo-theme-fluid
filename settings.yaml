@@ -2,8 +2,51 @@
 genernal:
   label: 基本设置
   items:
-    index_notice:
-      name: index_notice
-      label: 首页公告
-      type: textarea
-      default: '欢迎来到我的博客'
+    icp_number:
+      name: ipc_number
+      label: ICP备案号
+      type: text
+      placeholder: 请输入ICP备案号
+      description: 用于显示在网站底部，不填则不显示(示例：粤ICP备12345678号)
+    police_number:
+      name: police_number
+      label: 公安备案号
+      type: text
+      placeholder: 请输入公安备案号
+      description: 用于显示在网站底部，不填则不显示(示例：粤公网安备123456789号)
+home:
+  label: 首页设置
+  items:
+    sub_title:
+      name: sub_title
+      label: 副标题
+      type: text
+      placeholder: 请输入副标题
+      description: 用于显示在首页的副标题，不填则不显示
+    home_bg_image:
+      name: home_bg_image
+      label: 首页背景图
+      type: attachment
+      placeholder: 请输入首页背景图
+      description: 用于显示在首页的背景图，不填则显示默认背景图
+post:
+  label: 文章设置
+  items:
+    post_bg_image:
+      name: post_bg_image
+      label: 文章背景图
+      type: attachment
+      placeholder: 请输入文章背景图
+      description: 用于显示在文章详情页的背景图，不填则不显示
+    post_cover_image_to_bg:
+      name: post_cover_image_to_bg
+      label: 文章封面图作为背景图
+      type: radio
+      data-type: bool
+      description: 开启后，每篇文章自身的封面图将作为文章详情页的背景图，不开启则显示文章背景图
+      default: false
+      options:
+        - value: true
+          label: 开启
+        - value: false
+          label: 关闭
