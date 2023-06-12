@@ -2102,3 +2102,15 @@ input[type=checkbox] {
     margin-left: 1rem;
   }
 }
+
+.footer-content{
+  font-size: 14px;
+}
+
+.footer-content .halo{
+  color: #2f55d4;
+}
+
+.footer-content .theme a{
+    color: #2f55d4;
+}

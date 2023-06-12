@@ -3,7 +3,7 @@ genernal:
   label: 基本设置
   items:
     icp_number:
-      name: ipc_number
+      name: icp_number
       label: ICP备案号
       type: text
       placeholder: 请输入ICP备案号

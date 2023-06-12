@@ -249,11 +249,30 @@
 
     <div class="footer-inner">
         <div class="footer-content">
-            <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
-            <i class="iconfont icon-love"></i>
-            <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
-                <span>Fluid</span>
-            </a>
+            <#if settings.icp_number?? && settings.icp_number != ''>
+                <div class="icp">
+                    <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+                        <span>${settings.icp_number}</span>
+                    </a>
+                </div>
+            </#if>
+
+           <#if settings.police_number?? && settings.police_number != ''>
+            <div class="police">
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener" style="display: flex;align-items: center;justify-content: center;">
+                    <img src="${theme_base!}/source/images/police_beian.png" alt="" style="height: 16px;margin-right: 5px;"> <span>${settings.police_number}</span>
+                </a>
+            </div>
+            </#if>
+            <div class="powered">
+                Powered by
+                <a href="https://halo.run" target="_blank" class="halo" rel="nofollow noopener"><span>Halo</span></a>
+                <span> | </span>
+                <span class="theme">
+                    Theme by
+                    <a href="https://github.com/zhaojun0193/halo-theme-fluid" target="_blank" rel="nofollow noopener"><span>卑微幻想家</span></a>
+                </span>
+            </div>
         </div>
     </div>
 
