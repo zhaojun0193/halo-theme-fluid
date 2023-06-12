@@ -19,17 +19,17 @@
                                     </div>
                                     <div class="license-box my-3">
                                         <div class="license-title">
-                                            <div>Hello World</div>
-                                            <div>http://example.com/2023/06/10/hello-world/</div>
+                                            <div>${post.title!}</div>
+                                            <div>${blog_url!}${post.fullPath!}</div>
                                         </div>
                                         <div class="license-meta">
                                             <div class="license-meta-item">
                                                 <div>作者</div>
-                                                <div>John Doe</div>
+                                                <div>${user.nickname!}</div>
                                             </div>
                                             <div class="license-meta-item license-meta-date">
                                                 <div>发布于</div>
-                                                <div>2023年6月10日</div>
+                                                <div>${post.createTime?string("YYYY-MM-dd")}</div>
                                             </div>
                                             <div class="license-meta-item">
                                                 <div>许可协议</div>

@@ -244,12 +244,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto text-center">
                     <#include "menu.ftl">
-                    <li class="nav-item" id="search-btn">
-                        <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal"
-                           data-target="#modalSearch" aria-label="Search">
-                            <i class="iconfont icon-search"></i>
-                        </a>
-                    </li>
+<#--                    <li class="nav-item" id="search-btn">-->
+<#--                        <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal"-->
+<#--                           data-target="#modalSearch" aria-label="Search">-->
+<#--                            <i class="iconfont icon-search"></i>-->
+<#--                        </a>-->
+<#--                    </li>-->
                     <li class="nav-item" id="color-toggle-btn">
                         <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
                             <i class="iconfont icon-dark" id="color-toggle-icon"></i>
