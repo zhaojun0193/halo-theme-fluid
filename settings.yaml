@@ -58,7 +58,7 @@ category:
       label: 分类背景图
       type: attachment
       placeholder: 请输入分类背景图
-      description: 用于显示在分类详情页的背景图，不填则不显示
+      description: 用于显示在分类详情页的背景图，不填则显示默认背景图
 tag:
   label: 标签设置
   items:
@@ -67,4 +67,13 @@ tag:
       label: 标签背景图
       type: attachment
       placeholder: 请输入标签背景图
-      description: 用于显示在标签详情页的背景图，不填则不显示
+      description: 用于显示在标签详情页的背景图，不填则显示默认背景图
+links:
+  label: 友情链接
+  items:
+    links_bg_image:
+      name: links_bg_image
+      label: 友情链接背景图
+      type: attachment
+      placeholder: 请输入友情链接背景图
+      description: 用于显示在友情链接详情页的背景图，不填则显示默认背景图

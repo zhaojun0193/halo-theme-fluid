@@ -140,6 +140,12 @@
         <#else>
             <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
         </#if>
+    <#elseif is_links??>
+        <#if settings.links_bg_image?? && settings.links_bg_image != ''>
+            <div id="banner" class="banner" parallax=true style="background: url('${settings.links_bg_image!}') no-repeat center center; background-size: cover;">
+        <#else>
+            <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
+        </#if>
     <#elseif is_post??>
         <#if settings.post_cover_image_to_bg?? && settings.post_cover_image_to_bg>
             <div id="banner" class="banner" parallax=true style="background: url('${post.thumbnail!}') no-repeat center center; background-size: cover;">
@@ -167,6 +173,8 @@
                             <span id="category-title" >${category.name!}</span>
                         <#elseif is_tag?? && tag??>
                             <span id="tag-title" >${tag.name!}</span>
+                        <#elseif is_links??>
+                            <span id="links-title">友链</span>
                         </#if>
                     </div>
                     <#if is_post??>
