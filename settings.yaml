@@ -86,3 +86,12 @@ archive:
       type: attachment
       placeholder: 请输入归档背景图
       description: 用于显示在归档详情页的背景图，不填则显示默认背景图
+sheet:
+  label: 自定义页面设置
+    items:
+        sheet_bg_image:
+        name: sheet_bg_image
+        label: 自定义页面背景图
+        type: attachment
+        placeholder: 请输入自定义页面背景图
+        description: 用于显示在自定义页面详情页的背景图，不填则显示默认背景图

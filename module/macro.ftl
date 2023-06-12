@@ -152,6 +152,12 @@
         <#else>
             <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
         </#if>
+    <#elseif is_sheet??>
+        <#if settings.sheet_bg_image?? && settings.sheet_bg_image != ''>
+            <div id="banner" class="banner" parallax=true style="background: url('${settings.sheet_bg_image!}') no-repeat center center; background-size: cover;">
+        <#else>
+            <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
+        </#if>
     <#elseif is_post??>
         <#if settings.post_cover_image_to_bg?? && settings.post_cover_image_to_bg>
             <div id="banner" class="banner" parallax=true style="background: url('${post.thumbnail!}') no-repeat center center; background-size: cover;">
