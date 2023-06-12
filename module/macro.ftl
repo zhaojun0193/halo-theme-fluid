@@ -51,6 +51,7 @@
 
     <#if is_post??>
         <link rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css"/>
+        <link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/KaTeX/0.12.0/katex.min.css" type="text/css" rel="stylesheet" />
         <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"/>
         <link rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"/>
     </#if>
