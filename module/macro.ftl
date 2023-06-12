@@ -184,8 +184,12 @@
                             <span id="post-title" >${post.title!}</span>
                         <#elseif is_category?? && category??>
                             <span id="category-title" >${category.name!}</span>
+                        <#elseif is_categories??>
+                            <span id="categories-title" >分类</span>
                         <#elseif is_tag?? && tag??>
                             <span id="tag-title" >${tag.name!}</span>
+                        <#elseif is_tags??>
+                            <span id="tags-title" >标签</span>
                         <#elseif is_links??>
                             <span id="links-title">友链</span>
                         </#if>
