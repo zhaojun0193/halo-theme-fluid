@@ -9,7 +9,7 @@
                             <#list posts.content as post>
                                 <div class="row mx-auto index-card">
                                     <div class="col-12 col-md-4 m-auto index-img">
-                                        <a href="/posts/hello-fluid/" target="_self">
+                                        <a href="${post.fullPath}" target="_self">
                                             <img src="${post.thumbnail}" alt="Hello Fluid">
                                         </a>
                                     </div>

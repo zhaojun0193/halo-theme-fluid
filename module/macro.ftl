@@ -114,6 +114,10 @@
     </script>
     <script src="${theme_base!}/source/js/utils.js"></script>
     <script src="${theme_base!}/source/js/color-schema.js"></script>
+
+    <#if is_categories??>
+        <script src="https://lib.baomitu.com/echarts/5.1.2/echarts.min.js"></script>
+    </#if>
 </head>
 </#macro>
 
@@ -121,6 +125,12 @@
     <#if is_index??>
         <#if settings.home_bg_image?? && settings.home_bg_image != ''>
             <div id="banner" class="banner" parallax=true style="background: url('${settings.home_bg_image!}') no-repeat center center; background-size: cover;">
+        <#else>
+            <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
+        </#if>
+    <#elseif is_category?? || is_categories??>
+        <#if settings.category_bg_image?? && settings.category_bg_image != ''>
+            <div id="banner" class="banner" parallax=true style="background: url('${settings.category_bg_image!}') no-repeat center center; background-size: cover;">
         <#else>
             <div id="banner" class="banner" parallax=true style="background: url('${theme_base!}/source/images/default.png') no-repeat center center; background-size: cover;">
         </#if>
@@ -146,7 +156,9 @@
                                 <span id="subtitle" data-typed-text="${settings.sub_title!}"></span>
                             </#if>
                         <#elseif is_post?? && post??>
-                            <span id="subtitle" data-typed-text="${post.title!}"></span>
+                            <span id="post-title" >${post.title!}</span>
+                        <#elseif is_category?? && category??>
+                            <span id="category-title" >${category.name!}</span>
                         </#if>
                     </div>
                     <#if is_post??>
@@ -173,9 +185,11 @@
                     </div>
                     </#if>
                 </div>
-                <div class="scroll-down-bar">
-                    <i class="iconfont icon-arrowdown"></i>
-                </div>
+                <#if is_index??>
+                    <div class="scroll-down-bar">
+                        <i class="iconfont icon-arrowdown"></i>
+                    </div>
+                </#if>
             </div>
         </div>
     </div>

@@ -2112,5 +2112,35 @@ input[type=checkbox] {
 }
 
 .footer-content .theme a{
-    color: #2f55d4;
+    color: #30a9de;
+}
+
+.category-item-wrap{
+  margin-top: 60px;
+  display: flex;
+  list-style: none;
+}
+
+.category-item-wrap li {
+ position: relative;
+  padding: 0 20px;
+}
+
+.category-item-wrap li:hover:before {
+    border-color: #ff7242;
+}
+
+.category-item-wrap li:before{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border: .22em solid #49b1f5;
+  border-radius: .5em;
+  background: 0 0;
+  content: '';
+  cursor: pointer;
+  transition: all .3s ease-out;
 }

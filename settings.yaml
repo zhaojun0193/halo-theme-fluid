@@ -50,3 +50,12 @@ post:
           label: 开启
         - value: false
           label: 关闭
+category:
+  label: 分类设置
+  items:
+    category_bg_image:
+      name: category_bg_image
+      label: 分类背景图
+      type: attachment
+      placeholder: 请输入分类背景图
+      description: 用于显示在分类详情页的背景图，不填则不显示
