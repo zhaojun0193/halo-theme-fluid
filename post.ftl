@@ -52,6 +52,10 @@
                                         </article>
                                     </div>
                                 </div>
+                                <div id="comment">
+                                    <#include "module/comment.ftl">
+                                    <@comment target=post type="post" />
+                                </div>
                             </article>
                         </div>
                     </div>
