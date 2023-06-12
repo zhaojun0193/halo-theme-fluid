@@ -1,48 +1,34 @@
 <#include "module/macro.ftl">
 <@layout title="归档 - ${blog_title!}">
-    <h1>归档</h1>
-    <ul>
-        <#list archives as archive>
-            <h2>${archive.year?c}</h2>
-            <#list archive.posts as post>
-                <li>
-                    <a href="${post.fullPath!}">${post.title!}</a>
-                </li>
-            </#list>
-        </#list>
-    </ul>
-
-    <h1>分页</h1>
-
-    <#if posts.totalPages gt 1>
-        <ul>
-            <@paginationTag method="archives" page="${posts.number}" total="${posts.totalPages}" display="3">
-                <#if pagination.hasPrev>
-                    <li>
-                        <a href="${pagination.prevPageFullPath!}">
-                            上一页
-                        </a>
-                    </li>
-                </#if>
-                <#list pagination.rainbowPages as number>
-                    <li>
-                        <#if number.isCurrent>
-                            <span class="current">第 ${number.page!} 页</span>
-                        <#else>
-                            <a href="${number.fullPath!}">第 ${number.page!} 页</a>
-                        </#if>
-                    </li>
-                </#list>
-                <#if pagination.hasNext>
-                    <li>
-                        <a href="${pagination.nextPageFullPath!}">
-                            下一页
-                        </a>
-                    </li>
-                </#if>
-            </@paginationTag>
-        </ul>
-    <#else>
-        <span>当前只有一页</span>
-    </#if>
+    <main>
+        <div class="container nopadding-x-md">
+            <div id="board" style="margin-top: 0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-10 m-auto">
+                            <div class="list-group">
+                                <@postTag method="count">
+                                    <p class="h4">共计 ${count!0} 篇文章</p>
+                                </@postTag>
+                                <hr>
+                                <#list archives as archive>
+                                <p class="h5">${archive.year?c}</p>
+                                    <#list archive.posts as post>
+                                        <a href="${post.fullPath!}" class="list-group-item list-group-item-action">
+                                            <time>${post.createTime?string("MM-dd")}</time>
+                                            <div class="list-group-item-title">${post.title!}</div>
+                                        </a>
+                                    </#list>
+                                </#list>
+                            </div>
+                            <@pagination/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </@layout>
+
+
+

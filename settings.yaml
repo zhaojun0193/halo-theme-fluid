@@ -77,3 +77,12 @@ links:
       type: attachment
       placeholder: 请输入友情链接背景图
       description: 用于显示在友情链接详情页的背景图，不填则显示默认背景图
+archive:
+  label: 归档设置
+  items:
+    archive_bg_image:
+      name: archive_bg_image
+      label: 归档背景图
+      type: attachment
+      placeholder: 请输入归档背景图
+      description: 用于显示在归档详情页的背景图，不填则显示默认背景图
