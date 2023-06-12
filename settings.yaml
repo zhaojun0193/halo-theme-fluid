@@ -59,3 +59,12 @@ category:
       type: attachment
       placeholder: 请输入分类背景图
       description: 用于显示在分类详情页的背景图，不填则不显示
+tag:
+  label: 标签设置
+  items:
+    tag_bg_image:
+      name: tag_bg_image
+      label: 标签背景图
+      type: attachment
+      placeholder: 请输入标签背景图
+      description: 用于显示在标签详情页的背景图，不填则不显示

@@ -2115,22 +2115,22 @@ input[type=checkbox] {
     color: #30a9de;
 }
 
-.category-item-wrap{
+.category-item-wrap,.tag-item-wrap{
   margin-top: 60px;
   display: flex;
   list-style: none;
 }
 
-.category-item-wrap li {
+.category-item-wrap,.tag-item-wrap li {
  position: relative;
   padding: 0 20px;
 }
 
-.category-item-wrap li:hover:before {
+.category-item-wrap,.tag-item-wrap li:hover:before {
     border-color: #ff7242;
 }
 
-.category-item-wrap li:before{
+.category-item-wrap,.tag-item-wrap li:before{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
