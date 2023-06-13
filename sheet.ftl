@@ -3,7 +3,23 @@
     <main>
         <div class="container-fluid nopadding-x">
             <div class="row nomargin-x">
-                <div class="side-col d-none d-lg-block col-lg-2"></div>
+                <div class="side-col d-none d-lg-block col-lg-2">
+                    <#if settings.google_adsense_client?? && settings.google_adsense_slot_post??>
+                        <!-- 广告位-->
+                        <aside class="sidebar d-none d-xl-block" style="margin-right:-1rem;z-index:-1">
+                            <!-- post-left -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="${settings.google_adsense_client!}"
+                                 data-ad-slot="${settings.google_adsense_slot_post!}"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </aside>
+                    </#if>
+                </div>
                 <div class="col-lg-8 nopadding-x-md">
                     <div class="container nopadding-x-md" id="board-ctn">
                         <div id="board">
@@ -15,6 +31,21 @@
                                 </div>
                                 <hr/>
                                 <div>
+                                    <!-- 广告位-->
+                                    <#if settings.google_adsense_client?? && settings.google_adsense_slot_bottom??>
+                                        <div style="width:100%;margin-bottom:1.5rem">
+                                            <!-- post-bottom -->
+                                            <ins class="adsbygoogle"
+                                                 style="display:block"
+                                                 data-ad-client="${settings.google_adsense_client!}"
+                                                 data-ad-slot="${settings.google_adsense_slot_bottom!}"
+                                                 data-ad-format="auto"
+                                                 data-full-width-responsive="true"></ins>
+                                            <script>
+                                                (adsbygoogle = window.adsbygoogle || []).push({});
+                                            </script>
+                                        </div>
+                                    </#if>
                                     <div class="post-metas my-3">
                                     </div>
                                     <div class="post-prevnext my-3">
