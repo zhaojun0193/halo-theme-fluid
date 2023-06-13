@@ -2119,6 +2119,7 @@ input[type=checkbox] {
   margin-top: 60px;
   display: flex;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .category-item-wrap li,.tag-item-wrap li {
