@@ -106,6 +106,14 @@
 
     // 设置其他应用
     setApplications(current);
+
+      const customEvent = new CustomEvent('themeEvent', {
+          detail: {
+              theme: current
+          }
+      });
+
+      document.dispatchEvent(customEvent);
   }
 
   var invertColorSchemaObj = {

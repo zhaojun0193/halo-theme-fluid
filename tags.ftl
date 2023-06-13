@@ -25,6 +25,7 @@
 
         // 指定图表的配置项和数据
         var option = {
+            backgroundColor: 'transparent',
             title: {
                 text: '文章标签统计图',
                 left: 'center'
@@ -70,6 +71,14 @@
                 }
             ]
         };
+
+        document.addEventListener('themeEvent',function (e){
+            // 释放资源
+            myChart.dispose();
+            // 重新渲染图表
+            myChart = echarts.init(document.getElementById('tagChart'),e.detail.theme);
+            myChart.setOption(option);
+        })
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
