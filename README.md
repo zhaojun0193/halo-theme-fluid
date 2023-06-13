@@ -4,4 +4,16 @@
 ## 预览主题
 ![首页效果](https://image0193.oss-cn-hongkong.aliyuncs.com/halo/upload/2023/06/12/e2b73189d93a5d40baaf99ed7382eb45-Snipaste_new.png?x-oss-process=style/dealwith)
 
-### 未完成，待续。。。
+## 已实现功能
+- [x] 文章置顶
+- [x] 自定义背景图
+- [x] 文章目录
+- [x] 代码高亮
+- [x] 主题模式（深色/浅色）
+- [x] 评论系统
+- [x] 数学公式
+
+## 待实现功能
+- [ ] 日志
+- [ ] 图库
+- [ ] 谷歌广告展示
