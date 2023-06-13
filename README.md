@@ -3,6 +3,7 @@
 ---
 ## 预览主题
 ![首页效果](https://image0193.oss-cn-hongkong.aliyuncs.com/halo/upload/2023/06/12/e2b73189d93a5d40baaf99ed7382eb45-Snipaste_new.png?x-oss-process=style/dealwith)
+![首页效果](https://image0193.oss-cn-hongkong.aliyuncs.com/halo/upload/2023/06/13/1dbacc3790a94d16a134a5f7c2760c8f-Pasted%20image%2020230613130813.png?x-oss-process=style/dealwith)
 
 ## 安装
 主题仓库地址 https://github.com/zhaojun0193/halo-theme-fluid
