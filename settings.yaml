@@ -95,3 +95,18 @@ sheet:
       type: attachment
       placeholder: 请输入自定义页面背景图
       description: 用于显示在自定义页面详情页的背景图，不填则显示默认背景图
+advertisement:
+  label: 广告设置
+  items:
+    google_adsense_client:
+      name: google_adsense_client
+      label: 谷歌广告代码
+      type: text
+      placeholder: 请输入谷歌广告代码，如：ca-pub-xxxxxxxxxxxxxxxx
+      description: 用于显示在文章详情页的广告，不填则不显示
+    google_adsense_slot_post:
+      name: google_adsense_slot_post
+      label: 谷歌广告位代码(文章详情页左侧)
+      type: text
+      placeholder: 请输入谷歌广告位代码，如：xxxxxxxxxx
+      description: 用于显示在文章详情页的广告，不填则不显示

@@ -3,7 +3,21 @@
     <main>
         <div class="container-fluid nopadding-x">
             <div class="row nomargin-x">
-                <div class="side-col d-none d-lg-block col-lg-2"></div>
+                <div class="side-col d-none d-lg-block col-lg-2">
+                    <#if settings.google_adsense_client?? && settings.google_adsense_slot_post??>
+                        <aside class="sidebar d-none d-xl-block" style="margin-right:-1rem;z-index:-1">
+                            <ins class="adsbygoogle"
+                                 style="display:block; text-align:center;"
+                                 data-ad-layout="in-article"
+                                 data-ad-format="fluid"
+                                 data-ad-client="${settings.google_adsense_client!}
+                                 data-ad-slot="${settings.google_adsense_slot_post!}"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </aside>
+                    </#if>
+                </div>
                 <div class="col-lg-8 nopadding-x-md">
                     <div class="container nopadding-x-md" id="board-ctn">
                         <div id="board">
