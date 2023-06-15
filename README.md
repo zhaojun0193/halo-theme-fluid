@@ -17,11 +17,11 @@
 - [x] 主题模式（深色/浅色）
 - [x] 评论系统
 - [x] 数学公式
+- [x] 谷歌广告展示
 
 ## 待实现功能
 - [ ] 日志
 - [ ] 图库
-- [ ] 谷歌广告展示
 
 ## 许可证
 [![license](https://img.shields.io/github/license/halo-dev/halo.svg?style=flat-square)](https://github.com/halo-dev/halo/blob/master/LICENSE)
