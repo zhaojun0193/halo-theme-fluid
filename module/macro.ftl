@@ -467,10 +467,10 @@
     <@global.footer />
 </#macro>
 
-<#macro pagination>
+<#macro pagination method slug="">
     <nav aria-label="navigation">
         <span class="pagination" id="pagination">
-    <@paginationTag method="index" page="${posts.number}" total="${posts.totalPages}" display="3">
+    <@paginationTag method="${method}" slug="${slug}" page="${posts.number}" total="${posts.totalPages}" display="3">
         <#if pagination.hasPrev>
             <a class="extend prev" rel="next" href="${pagination.prevPageFullPath!}">
                 <i class="iconfont icon-arrowleft"></i>

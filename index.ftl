@@ -57,7 +57,7 @@
                                     </article>
                                 </div>
                             </#list>
-                            <@pagination/>
+                            <@pagination method="index"/>
                         </div>
                     </div>
                 </div>

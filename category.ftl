@@ -57,7 +57,7 @@
                                     </article>
                                 </div>
                             </#list>
-                            <@pagination/>
+                            <@pagination method="categoryPosts" slug="category.name"/>
                         </div>
                     </div>
                 </div>

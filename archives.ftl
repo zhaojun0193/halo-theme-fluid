@@ -21,7 +21,7 @@
                                     </#list>
                                 </#list>
                             </div>
-                            <@pagination/>
+                            <@pagination method="archives"/>
                         </div>
                     </div>
                 </div>
