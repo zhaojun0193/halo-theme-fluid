@@ -28,21 +28,20 @@
         包含：Favicon，自定义 head 等
     -->
     <meta charset="UTF-8">
-    <link rel="apple-touch-icon" sizes="76x76" href="${theme_base!}/source/images/fluid.png">
-    <link rel="icon" href="${theme_base!}/source/images/fluid.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="${blog_logo!}">
+    <link rel="icon" href="${blog_logo!}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <meta name="theme-color" content="#2f4154">
-    <meta name="author" content="John Doe">
-    <meta name="keywords" content="">
+    <meta name="author" content="zhaojun">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Hexo">
-    <meta property="og:url" content="http://example.com/index.html">
-    <meta property="og:site_name" content="Hexo">
+    <meta property="og:title" content="卑微幻想家">
+    <meta property="og:url" content="https://www.zhaojun.ink/">
+    <meta property="og:site_name" content="卑微幻想家">
     <meta property="og:locale" content="zh_CN">
-    <meta property="article:author" content="John Doe">
+    <meta property="article:author" content="zhaojun">
     <meta name="twitter:card" content="summary_large_image">
     <@global.head />
 
