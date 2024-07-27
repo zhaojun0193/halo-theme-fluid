@@ -5,7 +5,7 @@
         <div class="container nopadding-x-md">
             <div id="board" style="margin-top: 0">
                 <div class="container">
-                    <div id="categoryChart" style="width: 600px;height:600px;margin: 0 auto"></div>
+                    <div id="categoryChart" style="width: 100%;height: 600px;margin: 0;"></div>
                     <ul class="category-item-wrap">
                         <@categoryTag method="list">
                             <#if categories?? && categories?size gt 0>
@@ -83,5 +83,7 @@
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
+        window.onresize = myChart.resize
+
     </script>
 </@layout>

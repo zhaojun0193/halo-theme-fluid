@@ -4,7 +4,7 @@
         <div class="container nopadding-x-md">
             <div id="board" style="margin-top: 0">
                 <div class="container">
-                    <div id="tagChart" style="width: 600px;height:600px;margin: 0 auto"></div>
+                    <div id="tagChart" style="width: 100%;height: 600px;margin: 0 auto"></div>
                     <ul class="tag-item-wrap">
                         <@tagTag method="list">
                             <#if tags?? && tags?size gt 0>
